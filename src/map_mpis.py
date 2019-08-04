@@ -22,3 +22,16 @@ for deu_ou in deu_fnd:
         all_ous.append(deu_fnd[deu_ou])
 
 utils.write_json(MPIS_DIR + "map/mpi_ous.json",all_fnd)
+
+o = list(all_fnd.values())
+m = list(all_fnd.keys())
+
+ous_mpi = {}
+
+for i in range(len(o)):
+    ou = o[i]
+    name = m[i]
+    ous_mpi[ou] = name
+
+print("done with reverse mapping!")
+utils.write_json(MPIS_DIR + 'mapped/ous_mpi.json', ous_mpi)
