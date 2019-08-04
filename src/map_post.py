@@ -4,15 +4,30 @@ from pybman import utils
 
 from .utils_paths import BASE_DIR
 
+MPIS_DIR = BASE_DIR + 'mpis/'
+
 print("console output is redirected to map_ṕost.log ...")
 
 stdout = sys.stdout
 
-log = open("log/data_ctx_mpis.log", "w+")
+log = open("log/map_post.log", "w+")
 sys.stdout = log
 
 mpis = utils.read_json(BASE_DIR + 'mpis/scrape/all.json')
 mpis_mapped = utils.read_json(BASE_DIR + 'mpis/map/mpi_ous.json') # ous.json
+
+o = list(mpis_mapped.values())
+m = list(mpis_mapped.keys())
+
+ous_mpi = {}
+
+for i in range(len(o)):
+    ou = o[i]
+    name = m[i]
+    ous_mpi[ou] = name
+
+print("done with reverse mapping!")
+utils.write_json(MPIS_DIR + 'mapped/ous_mpi.json', ous_mpi)
 
 m = list(mpis.keys())
 n = list(mpis_mapped.keys())
