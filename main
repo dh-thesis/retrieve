@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+rm -rf log
+mkdir log
+rm -rf ../base/
+mkdir ../base/
+source env/bin/activate
+python -m src
+deactivate
