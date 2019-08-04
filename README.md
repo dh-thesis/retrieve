@@ -1,1 +1,1 @@
-# Retreive Publication Data
+# Retrieve Publication Data
