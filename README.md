@@ -12,7 +12,7 @@ deactivate
 ```
 
 - make sure you have [Gecko Driver](https://github.com/mozilla/geckodriver/releases/) available on your `PATH`
-- modify output dir (`BASE_DIR`) in [`./src/utils_path.py`](./src/utils_path.py) (optional)
+- modify output dir (`BASE_DIR`) in [`./src/utils_paths.py`](./src/utils_paths.py) (optional)
 - finally start the retrieval:
 
 ```
