@@ -9,22 +9,10 @@ virtualenv -p python3 --no-site-packages env
 source env/bin/activate
 pip install -r requirements.txt
 deactivate
-```
-
-- make sure you have [Gecko Driver](https://github.com/mozilla/geckodriver/releases/) available on your `PATH`
-- start the retrieval:
-
-```
 ./main
 ```
 
 ## Scripts
-
-```
-start retrieval!
-```
-
-#### Entity and Item Records
 
 The following scripts are used to retrieve informations about entities from [MPG.PuRe](https://pure.mpg.de) and its named entity service [CoNE](https://pure.mpg.de/cone/) and finally to query the records.
 
@@ -53,25 +41,5 @@ The following scripts are used to retrieve informations about entities from [MPG
 ```
 100%|████████████████████████████████████████████| 219/219 [20:42<00:00,  3.14s/it]
 ```
-
-Requirements: [Pybman](https://pypi.org/project/pybman/)
-
-#### Institutes of the Max Planck Society
-
-The following scripts are used to crawl informations about the current Max Planck Institutes (MPIs), their research domains (`category`) and research areas (`tag`) from the website of the Max Planck Society.
-
-- [`src/crawl_mpis_eng.py`](./src/crawl_mpis_eng.py)
-- [`src/crawl_mpis_deu.py`](./src/crawl_mpis_deu.py)
-
-Requirements: [Selenium](https://pypi.org/project/selenium/), [Firefox](https://www.mozilla.org/en-US/firefox/) and [Gecko Driver](https://github.com/mozilla/geckodriver/releases/)
-
-#### Mapping of MPIs to MPG.PuRe Entities
-
-The following scripts are used to map the crawled MPIs to their corresponding identifiers in MPG.PuRe and to find the associated contexts as well as categories and thematic tags of the institutes.
-
-- [`src/map_mpis_eng.py`](./src/map_mpis_eng.py)
-- [`src/map_mpis_deu.py`](./src/map_mpis_deu.py)
-- [`src/map_mpis.py`](./src/map_mpis.py)
-- [`src/map_post.py`](./src/map_post.py)
 
 Requirements: [Pybman](https://pypi.org/project/pybman/)
