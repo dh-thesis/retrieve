@@ -5,10 +5,6 @@ rm -rf ../base/
 mkdir ../base/
 mkdir ../base/data/
 mkdir ../base/data/items
-mkdir ../base/data/mpis
-mkdir ../base/data/mpis/map
-mkdir ../base/data/mpis/mapped
-mkdir ../base/data/mpis/scrape
 mkdir ../base/data/pure/
 mkdir ../base/data/pure/ctx
 mkdir ../base/data/pure/jour
