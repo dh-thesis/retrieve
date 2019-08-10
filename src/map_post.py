@@ -14,6 +14,9 @@ log = open("log/map_post.log", "w+")
 sys.stdout = log
 
 mpis = utils.read_json(BASE_DIR + 'mpis/scrape/all.json')
+
+print("scraped",len(mpis),"institues!")
+
 mpis_mapped = utils.read_json(BASE_DIR + 'mpis/map/mpi_ous.json') # ous.json
 
 o = list(mpis_mapped.values())
@@ -37,19 +40,6 @@ no_map = []
 
 for i in m:
     if i in n:
-        counter += 1
-        continue
-    elif i.split(",")[0] in n:
-        # Max Planck Institute for Software Systems, Kaiserslautern site
-        # Max Planck Institute for Software Systems, Saarbrücken site
-        # Max Planck Institute for Intelligent Systems, Stuttgart site
-        # Max Planck Institute for Intelligent Systems, Tübingen site
-        counter += 1
-        continue
-    elif i.split(" (")[0] in n:
-        # Max Planck Institute for Gravitational Physics (Hannover)
-        # Max Planck Institute for Ornithology (Radolfzell)
-        # Max Planck Institute for Plasma Physics (Greifswald)
         counter += 1
         continue
     elif i == 'Research Group Social Neuroscience':
@@ -138,20 +128,6 @@ for cat in cats:
                 cats_mapped[cat].append(mpis_mapped[mpi])
             else:
                 continue
-        elif mpi.split(",")[0] in n:
-            # prevent duplicate
-            if mpis_mapped[mpi.split(",")[0]] not in cats_mapped[cat]:
-                counter += 1
-                cats_mapped[cat].append(mpis_mapped[mpi.split(",")[0]])
-            else:
-                continue
-        elif mpi.split(" (")[0] in n:
-            # prevent duplicate
-            if mpis_mapped[mpi.split(" (")[0]] not in cats_mapped[cat]:
-                counter += 1
-                cats_mapped[cat].append(mpis_mapped[mpi.split(" (")[0]])
-            else:
-                continue
         elif mpi == 'Research Group Social Neuroscience':
             # part of the Max Planck Institute for Human Cognitive and Brain Sciences
             continue
@@ -168,7 +144,7 @@ print("")
 utils.write_json(BASE_DIR + "mpis/mapped/cat_ous.json", cats_mapped)
 print("")
 
-n = list(collections.keys())
+n = list(mpis_mapped.values())
 
 ous_cat = {}
 
@@ -205,10 +181,6 @@ for mpi in m:
     tags = mpis[mpi]['tags']
     if mpi in n:
         idx = mpis_mapped[mpi]
-    elif mpi.split(",")[0] in n:
-        idx = mpis_mapped[mpi.split(",")[0]]
-    elif mpi.split(" (")[0] in n:
-        idx = mpis_mapped[mpi.split(" (")[0]]
     elif mpi == 'Research Group Social Neuroscience':
         # part of the Max Planck Institute for Human Cognitive and Brain Sciences
         pass
