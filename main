@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-rm -rf log
-mkdir log
 rm -rf ../base/
 mkdir ../base/
 mkdir ../base/data/
