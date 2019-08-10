@@ -3,6 +3,17 @@ rm -rf log
 mkdir log
 rm -rf ../base/
 mkdir ../base/
+mkdir ../base/data/
+mkdir ../base/data/items
+mkdir ../base/data/mpis
+mkdir ../base/data/mpis/map
+mkdir ../base/data/mpis/mapped
+mkdir ../base/data/mpis/scrape
+mkdir ../base/data/pure/ctx
+mkdir ../base/data/pure/jour
+mkdir ../base/data/pure/lang
+mkdir ../base/data/pure/ous
+mkdir ../base/data/pure/pers
 source env/bin/activate
 python -m src
 deactivate
